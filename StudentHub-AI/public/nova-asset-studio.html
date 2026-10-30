@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudentHub-AI × Nova OS | Senior 3D Asset & Clean-Plate Video Studio v3.0</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --emerald: #10b981;
+      --cyan: #38bdf8;
+      --crimson: #ef4444;
+      --amber: #f59e0b;
+      --bg: #050811;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(circle at 50% 0%, #0f172a 0%, #050811 75%);
+      color: #f8fafc;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 18px 24px 32px;
+      min-height: 100vh;
+    }
+    .header-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 1180px;
+      width: 100%;
+      margin-bottom: 12px;
+    }
+    .badge-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .pill-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    h1 {
+      font-size: 21px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      background: linear-gradient(90deg, #ffffff, #34d399, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+    }
+    p.sub {
+      font-size: 12.5px;
+      color: #94a3b8;
+      text-align: center;
+      max-width: 880px;
+      line-height: 1.5;
+    }
+    .toolbar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 10px;
+      max-width: 1180px;
+    }
+    button {
+      background: rgba(30, 41, 59, 0.85);
+      color: #e2e8f0;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 9px 15px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 12.5px;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    button:hover {
+      border-color: #34d399;
+      transform: translateY(-1px);
+    }
+    button.active {
+      background: var(--emerald);
+      color: #022c22;
+      border-color: #6ee7b7;
+      font-weight: 800;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    }
+    button.mode-btn {
+      background: rgba(14, 116, 144, 0.35);
+      border-color: rgba(56, 189, 248, 0.45);
+      color: #7dd3fc;
+    }
+    button.mode-btn.clean-active {
+      background: #0284c7;
+      color: #fff;
+      border-color: #38bdf8;
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.4);
+    }
+    button.action-btn {
+      background: #2563eb;
+      border-color: #60a5fa;
+      color: #fff;
+    }
+    button.record-btn {
+      background: #dc2626;
+      border-color: #f87171;
+      color: #fff;
+    }
+    button.batch-btn {
+      background: #7c3aed;
+      border-color: #a78bfa;
+      color: #fff;
+    }
+    button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .canvas-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 1160px;
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.12);
+      background: #050811;
+    }
+    canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      cursor: crosshair;
+    }
+    .footer-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1160px;
+      margin-top: 10px;
+      font-size: 12px;
+      color: #94a3b8;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .status-bar {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-bar">
+    <div class="badge-row">
+      <span class="pill-badge">v3.0 SENIOR HYBRID COMPOSITOR</span>
+      <span class="pill-badge" style="color:#7dd3fc;border-color:rgba(56,189,248,0.35);background:rgba(56,189,248,0.12)">5 AI-ENHANCED 3D PLATES LOADED</span>
+      <span class="pill-badge" style="color:#fcd34d;border-color:rgba(251,191,36,0.35);background:rgba(251,191,36,0.12)">ZERO WATERMARK · CLEAN PLATE READY</span>
+    </div>
+    <h1>🛡️ StudentHub-AI × NOVA OS — Studio Kết Xuất 3D Shader & Clean-Plate Video (5 Phân Cảnh)</h1>
+    <p class="sub">
+      Tích hợp trực tiếp 5 bức ảnh 3D AI-Enhanced chuẩn Octane/UE5 (`scene1..5_*_ai_enhanced.png`) kết hợp 2.5D Mouse Parallax, Voronoi Glass RGB Split, Perlin Fire Burn và Isometric Data Pulses. Chế độ <b>Clean Plate</b> tắt toàn bộ HUD tĩnh để ghép hoàn hảo với React HUD mà không bị nhân đôi giao diện.
+    </p>
+  </div>
+
+  <div class="toolbar">
+    <button class="scene-btn active" onclick="setScene(1)">01 · Ảo tưởng Bảo mật (-18%)</button>
+    <button class="scene-btn" onclick="setScene(2)">02 · Vỡ kính & Lỗ hổng (-07%)</button>
+    <button class="scene-btn" onclick="setScene(3)">03 · Đốt giấy & 4 Lớp ATTT (+45%)</button>
+    <button class="scene-btn" onclick="setScene(4)">04 · Cổng Xoay Xuyên Mây (+75%)</button>
+    <button class="scene-btn" onclick="setScene(5)">05 · Đô thị Isometric Nova OS (+100%)</button>
+  </div>
+
+  <div class="toolbar">
+    <button class="mode-btn clean-active" id="cleanModeBtn" onclick="toggleCleanPlate()">
+      ✨ Chế độ: CLEAN PLATE (Ẩn HUD tĩnh — Chuẩn ghép React)
+    </button>
+    <button class="mode-btn" id="textOverlayBtn" onclick="toggleTypographyOverlay()">
+      🔤 Chữ Tiêu đề trong Canvas: ĐANG BẬT
+    </button>
+    <button class="action-btn" onclick="downloadSnapshot()">
+      📸 Xuất Ảnh .PNG (1920×1080)
+    </button>
+    <button class="record-btn" id="recBtn" onclick="recordSceneVideo()">
+      🎥 Quay Video Cảnh Này (5s .WEBM 60fps)
+    </button>
+    <button class="batch-btn" id="batchBtn" onclick="recordAllFiveCleanVideos()">
+      🎬 Quay Tự Động Cả 5 Cảnh (.WEBM)
+    </button>
+  </div>
+
+  <div class="canvas-wrap">
+    <canvas id="stage" width="1920" height="1080"></canvas>
+  </div>
+
+  <div class="footer-meta">
+    <div class="status-bar" id="status">Đang nạp 5 bức ảnh 3D AI-Enhanced (`scene1..5_*_ai_enhanced.png`)...</div>
+    <div>Di chuột trên khung hình để thử hiệu ứng 2.5D Depth Parallax</div>
+  </div>
+
+<script>
+const canvas = document.getElementById('stage');
+const ctx = canvas.getContext('2d');
+const statusEl = document.getElementById('status');
+
+let currentScene = 1;
+let t = 0;
+let cleanPlateMode = true;       // Mặc định ẩn HUD tĩnh để không đè lên React HUD
+let showCanvasTypography = true; // Cho phép bật/tắt cả chữ trong canvas khi cần xuất Clean Background 100%
+
+// Tọa độ chuột chuẩn hóa (-1 .. +1) cho hiệu ứng 2.5D Parallax
+let mouseX = 0;
+let mouseY = 0;
+let targetMouseX = 0;
+let targetMouseY = 0;
+
+canvas.addEventListener('mousemove', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  targetMouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+  targetMouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+});
+canvas.addEventListener('mouseleave', () => {
+  targetMouseX = 0;
+  targetMouseY = 0;
+});
+
+// Tự động dò đường dẫn ảnh AI-Enhanced dù mở từ Vite server (:5173) hay mở trực tiếp từ thư mục gốc D:\MYPROVIPPOJ
+const CANDIDATE_PATHS = {
+  scene1: [
+    '/assets/images/scene1_utopia_ai_enhanced.png',
+    './StudentHub-AI/public/assets/images/scene1_utopia_ai_enhanced.png'
+  ],
+  scene2: [
+    '/assets/images/scene2_shatter_ai_enhanced.png',
+    './StudentHub-AI/public/assets/images/scene2_shatter_ai_enhanced.png'
+  ],
+  scene3: [
+    '/assets/images/scene3_burn_ai_enhanced.png',
+    './StudentHub-AI/public/assets/images/scene3_burn_ai_enhanced.png'
+  ],
+  scene4: [
+    '/assets/images/scene4_portal_ai_enhanced.png',
+    './StudentHub-AI/public/assets/images/scene4_portal_ai_enhanced.png'
+  ],
+  scene5: [
+    '/assets/images/scene5_city_ai_enhanced.png',
+    './StudentHub-AI/public/assets/images/scene5_city_ai_enhanced.png'
+  ]
+};
+
+const loadedImages = {};
+let loadedCount = 0;
+
+function loadSceneImage(key, candidates, idx = 0) {
+  if (idx >= candidates.length) {
+    loadedCount++;
+    return;
+  }
+  const img = new Image();
+  img.onload = () => {
+    loadedImages[key] = img;
+    loadedCount++;
+    if (loadedCount === 5) {
+      statusEl.textContent = '✅ Đã nạp thành công 5/5 ảnh 3D AI-Enhanced (Sạch 100% watermark + Sẵn sàng xuất Clean-Plate .WEBM)!';
+    }
+  };
+  img.onerror = () => loadSceneImage(key, candidates, idx + 1);
+  img.src = candidates[idx];
+}
+
+Object.entries(CANDIDATE_PATHS).forEach(([key, list]) => loadSceneImage(key, list));
+
+function setScene(n) {
+  currentScene = n;
+  t = 0;
+  document.querySelectorAll('.scene-btn').forEach((btn, idx) => {
+    btn.classList.toggle('active', idx + 1 === n);
+  });
+}
+
+function toggleCleanPlate() {
+  cleanPlateMode = !cleanPlateMode;
+  const btn = document.getElementById('cleanModeBtn');
+  btn.classList.toggle('clean-active', cleanPlateMode);
+  btn.textContent = cleanPlateMode
+    ? '✨ Chế độ: CLEAN PLATE (Ẩn HUD tĩnh — Chuẩn ghép React)'
+    : '🖥️ Chế độ: FULL PREVIEW (Hiện HUD tĩnh why.zero.university)';
+}
+
+function toggleTypographyOverlay() {
+  showCanvasTypography = !showCanvasTypography;
+  const btn = document.getElementById('textOverlayBtn');
+  btn.textContent = showCanvasTypography
+    ? '🔤 Chữ Tiêu đề trong Canvas: ĐANG BẬT'
+    : '🖼️ Chữ Tiêu đề trong Canvas: ĐÃ ẨN (100% Pure 3D Backdrop)';
+}
+
+// Vẽ tấm nền 3D AI-Enhanced kèm hiệu ứng 2.5D Depth Parallax nhiều lớp
+function drawParallaxBasePlate(img, alpha = 0.85, scaleBoost = 1.06, parallaxStrength = 28) {
+  if (!img) return;
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  const w = 1920 * scaleBoost;
+  const h = 1080 * scaleBoost;
+  const dx = (1920 - w) / 2 - mouseX * parallaxStrength;
+  const dy = (1080 - h) / 2 - mouseY * (parallaxStrength * 0.65);
+  ctx.drawImage(img, dx, dy, w, h);
+  ctx.restore();
+}
+
+// Vẽ HUD tĩnh (chỉ vẽ khi tắt Clean Plate Mode)
+function drawZeroHUD(xp, progressText, darkTheme = true) {
+  if (cleanPlateMode) return;
+  ctx.save();
+  ctx.fillStyle = darkTheme ? 'rgba(255,255,255,0.15)' : 'rgba(15,23,42,0.12)';
+  ctx.beginPath(); ctx.arc(70, 65, 26, 0, Math.PI * 2); ctx.fill();
+  ctx.strokeStyle = darkTheme ? '#fff' : '#0f172a';
+  ctx.lineWidth = 2.5;
+  ctx.beginPath(); ctx.moveTo(58, 65); ctx.lineTo(82, 65); ctx.stroke();
+
+  ctx.strokeStyle = darkTheme ? 'rgba(255,255,255,0.35)' : 'rgba(15,23,42,0.3)';
+  ctx.lineWidth = 1.5;
+  for (let x = 760; x <= 1160; x += 12) {
+    const h = (x === 960) ? 24 : 10;
+    ctx.beginPath(); ctx.moveTo(x, 55 - h / 2); ctx.lineTo(x, 55 + h / 2); ctx.stroke();
+  }
+  ctx.fillStyle = darkTheme ? '#e2e8f0' : '#0f172a';
+  ctx.font = '700 15px "JetBrains Mono"';
+  ctx.textAlign = 'center';
+  ctx.fillText(progressText, 960, 92);
+
+  ctx.fillStyle = 'rgba(255,255,255,0.95)';
+  ctx.beginPath(); ctx.roundRect(1700, 42, 170, 46, 23); ctx.fill();
+  ctx.fillStyle = '#0f172a';
+  ctx.font = '800 17px Inter';
+  ctx.fillText(`✦ +${xp} SEC-XP`, 1785, 71);
+
+  ctx.fillStyle = 'rgba(255,255,255,0.95)';
+  ctx.beginPath(); ctx.roundRect(710, 975, 500, 68, 34); ctx.fill();
+  ctx.fillStyle = '#10b981';
+  ctx.beginPath(); ctx.arc(750, 1009, 22, 0, Math.PI * 2); ctx.fill();
+  ctx.fillStyle = '#090d16';
+  ctx.beginPath(); ctx.roundRect(790, 985, 340, 48, 24); ctx.fill();
+  ctx.fillStyle = '#fff';
+  ctx.font = '700 17px Inter';
+  ctx.fillText('Launch Nova OS →', 960, 1015);
+  ctx.restore();
+}
+
+function renderLoop() {
+  t += 0.016;
+  mouseX += (targetMouseX - mouseX) * 0.08;
+  mouseY += (targetMouseY - mouseY) * 0.08;
+
+  ctx.clearRect(0, 0, 1920, 1080);
+
+  if (currentScene === 1) {
+    // =========================================================================
+    // SCENE 1: THE FRAGILE AI UTOPIA (2.5D Hand Nexus + Sakura + God Rays)
+    // =========================================================================
+    const grad = ctx.createRadialGradient(960, 500, 80, 960, 540, 1200);
+    grad.addColorStop(0, '#ecfdf5');
+    grad.addColorStop(0.55, '#d1fae5');
+    grad.addColorStop(1, '#064e3b');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 1920, 1080);
+
+    drawParallaxBasePlate(loadedImages.scene1, 0.88, 1.06, 32);
+
+    // Tia nắng God-rays chiếu xiên từ góc trên
+    ctx.save();
+    ctx.globalCompositeOperation = 'screen';
+    for (let r = 0; r < 5; r++) {
+      const rayX = 350 + r * 280 + Math.sin(t * 0.7 + r) * 40;
+      const rayGrad = ctx.createLinearGradient(rayX, 0, rayX + 240, 1080);
+      rayGrad.addColorStop(0, 'rgba(255, 255, 255, 0.22)');
+      rayGrad.addColorStop(0.6, 'rgba(52, 211, 153, 0.08)');
+      rayGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      ctx.fillStyle = rayGrad;
+      ctx.beginPath();
+      ctx.moveTo(rayX - 90, 0);
+      ctx.lineTo(rayX + 110, 0);
+      ctx.lineTo(rayX + 420, 1080);
+      ctx.lineTo(rayX + 120, 1080);
+      ctx.closePath();
+      ctx.fill();
+    }
+    ctx.restore();
+
+    // Tâm điểm năng lượng giao thoa giữa bàn tay Người & AI
+    const nexusX = 960 - mouseX * 18;
+    const nexusY = 520 - mouseY * 14;
+    const pulseRadius = 70 + Math.sin(t * 3.2) * 18;
+    const nexusGrad = ctx.createRadialGradient(nexusX, nexusY, 4, nexusX, nexusY, pulseRadius * 2.4);
+    nexusGrad.addColorStop(0, 'rgba(254, 240, 138, 0.95)');
+    nexusGrad.addColorStop(0.35, 'rgba(52, 211, 153, 0.45)');
+    nexusGrad.addColorStop(1, 'rgba(16, 185, 129, 0)');
+    ctx.save();
+    ctx.globalCompositeOperation = 'screen';
+    ctx.fillStyle = nexusGrad;
+    ctx.beginPath();
+    ctx.arc(nexusX, nexusY, pulseRadius * 2.4, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Vòng sóng xung kích đồng tâm lan tỏa
+    for (let w = 0; w < 3; w++) {
+      const waveProg = ((t * 0.45 + w * 0.33) % 1);
+      ctx.strokeStyle = `rgba(16, 185, 129, ${(1 - waveProg) * 0.55})`;
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.arc(nexusX, nexusY, 40 + waveProg * 360, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    // 45 Cánh hoa anh đào & hạt quang học 3D bay theo chiều gió
+    for (let i = 0; i < 45; i++) {
+      const depth = 0.4 + (i % 5) * 0.2;
+      const px = ((i * 197 + t * 65 * depth - mouseX * 25 * depth) % 2040 + 2040) % 2040 - 60;
+      const py = ((i * 113 + Math.sin(t * 1.4 + i) * 35 + t * 38 * depth) % 1160 + 1160) % 1160 - 40;
+      ctx.save();
+      ctx.translate(px, py);
+      ctx.rotate(t * 0.9 + i);
+      ctx.fillStyle = i % 3 === 0 ? `rgba(110, 231, 183, ${0.45 * depth})` : `rgba(244, 114, 182, ${0.55 * depth})`;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, 11 * depth, 5.5 * depth, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    if (showCanvasTypography) {
+      ctx.save();
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.35)';
+      ctx.shadowBlur = 24;
+      ctx.fillStyle = '#ecfdf5';
+      ctx.font = 'italic 700 118px "Cormorant Garamond"';
+      ctx.fillText('Firewall', 140, 300);
+      ctx.font = '500 56px Inter';
+      ctx.fillText('would keep', 360, 380);
+      ctx.font = 'italic 700 136px "Cormorant Garamond"';
+      ctx.fillStyle = '#6ee7b7';
+      ctx.fillText('SAFE', 820, 520);
+      ctx.fillStyle = '#f8fafc';
+      ctx.font = '400 56px Inter';
+      ctx.fillText('StudentHub', 1320, 720);
+      ctx.font = 'italic 700 122px "Cormorant Garamond"';
+      ctx.fillText('Data.', 1360, 840);
+      ctx.restore();
+    }
+
+    drawZeroHUD(100, '-18%  01', false);
+
+  } else if (currentScene === 2) {
+    // =========================================================================
+    // SCENE 2: THE GLASS SHATTER (Voronoi Fracture + RGB Chromatic Split)
+    // =========================================================================
+    const grad = ctx.createRadialGradient(960, 540, 60, 960, 540, 1100);
+    grad.addColorStop(0, '#7f1d1d');
+    grad.addColorStop(0.6, '#1f0505');
+    grad.addColorStop(1, '#050811');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 1920, 1080);
+
+    // Hiệu ứng RGB Chromatic Aberration trên tấm ảnh nền vỡ kính AI-Enhanced
+    if (loadedImages.scene2) {
+      const jitter = Math.sin(t * 8) * 4;
+      drawParallaxBasePlate(loadedImages.scene2, 0.78, 1.07, 36);
+      ctx.save();
+      ctx.globalCompositeOperation = 'screen';
+      ctx.globalAlpha = 0.22;
+      ctx.drawImage(loadedImages.scene2, -8 + jitter - mouseX * 36, -mouseY * 20, 1936, 1088);
+      ctx.restore();
+    }
+
+    // Các đường nứt Voronoi phát sáng đỏ/xanh chạy từ tâm
+    ctx.save();
+    ctx.translate(960 - mouseX * 15, 520 - mouseY * 12);
+    for (let c = 0; c < 14; c++) {
+      const angle = (c / 14) * Math.PI * 2 + 0.15;
+      ctx.strokeStyle = c % 2 === 0 ? 'rgba(248, 113, 113, 0.55)' : 'rgba(56, 189, 248, 0.35)';
+      ctx.lineWidth = 1.8;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      let rx = 0, ry = 0;
+      for (let seg = 1; seg <= 5; seg++) {
+        rx += Math.cos(angle + Math.sin(c * seg + t) * 0.22) * 190;
+        ry += Math.sin(angle + Math.cos(c * seg + t) * 0.22) * 190;
+        ctx.lineTo(rx, ry);
+      }
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    // 32 mảnh kính 3D khúc xạ bay lơ lửng
+    for (let i = 0; i < 32; i++) {
+      const sx = ((i * 211 + Math.sin(t + i) * 35 - mouseX * (20 + i)) % 1920 + 1920) % 1920;
+      const sy = ((i * 137 + Math.cos(t * 0.8 + i) * 30 - mouseY * 20) % 1080 + 1080) % 1080;
+      const sz = 18 + (i % 5) * 12;
+      ctx.save();
+      ctx.translate(sx, sy);
+      ctx.rotate(t * 0.4 + i);
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+      ctx.strokeStyle = i % 3 === 0 ? 'rgba(56, 189, 248, 0.55)' : 'rgba(239, 68, 68, 0.65)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(-sz, -sz * 0.6);
+      ctx.lineTo(sz * 1.1, -sz * 0.9);
+      ctx.lineTo(sz * 0.7, sz * 0.8);
+      ctx.lineTo(-sz * 0.6, sz * 0.5);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    if (showCanvasTypography) {
+      ctx.save();
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#fca5a5';
+      ctx.font = 'italic 700 68px "Cormorant Garamond"';
+      ctx.fillText('Nhưng sự thật thì khác:', 960, 440);
+      ctx.fillStyle = '#ffffff';
+      ctx.shadowColor = 'rgba(239, 68, 68, 0.65)';
+      ctx.shadowBlur = 35;
+      ctx.font = '900 104px Inter';
+      ctx.fillText('Chỉ một lớp là chưa đủ.', 960, 565);
+      ctx.restore();
+    }
+
+    drawZeroHUD(200, '-07%  02', true);
+
+  } else if (currentScene === 3) {
+    // =========================================================================
+    // SCENE 3: BURN THE OLD PAPER & 4-LAYER SHIELD HOLOGRAM
+    // =========================================================================
+    ctx.fillStyle = '#040907';
+    ctx.fillRect(0, 0, 1920, 1080);
+
+    drawParallaxBasePlate(loadedImages.scene3, 0.82, 1.06, 28);
+
+    // 4 Vòng khiên đồng tâm Hologram xoay ngược chiều nhau ở tâm
+    const cx = 960 - mouseX * 20;
+    const cy = 540 - mouseY * 15;
+    for (let r = 1; r <= 4; r++) {
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(t * (r % 2 === 0 ? 0.55 : -0.55) * (1.2 / r));
+      ctx.strokeStyle = r === 1 ? 'rgba(245, 158, 11, 0.55)' : `rgba(16, 185, 129, ${0.75 - r * 0.12})`;
+      ctx.lineWidth = 3;
+      ctx.setLineDash([45 + r * 15, 25]);
+      ctx.beginPath();
+      ctx.arc(0, 0, 110 + r * 78, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    // 65 hạt tàn lửa cam & hạt năng lượng ngọc lục bảo bay lên
+    for (let i = 0; i < 65; i++) {
+      const ex = ((i * 107 + Math.sin(t * 1.8 + i) * 45) % 1920 + 1920) % 1920;
+      const ey = 1080 - ((t * (95 + (i % 4) * 30) + i * 73) % 1120);
+      const isEmerald = i % 2 === 0;
+      ctx.save();
+      ctx.fillStyle = isEmerald ? '#10b981' : '#f97316';
+      ctx.shadowColor = isEmerald ? '#34d399' : '#fb923c';
+      ctx.shadowBlur = 12;
+      ctx.beginPath();
+      ctx.arc(ex, ey, 2.2 + (i % 3) * 1.5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    if (showCanvasTypography) {
+      ctx.save();
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#fde68a';
+      ctx.font = 'italic 700 92px "Cormorant Garamond"';
+      ctx.fillText('Đốt bỏ quy tắc giấy tờ,', 140, 260);
+      ctx.fillStyle = '#34d399';
+      ctx.font = '900 86px Inter';
+      ctx.fillText('Kiến tạo ATTT 4 Lớp.', 140, 365);
+      ctx.restore();
+    }
+
+    drawZeroHUD(300, '+45%  03', true);
+
+  } else if (currentScene === 4) {
+    // =========================================================================
+    // SCENE 4: THE NOVA OS PORTAL & CLOUD HYPERSPACE WARP
+    // =========================================================================
+    ctx.fillStyle = '#040812';
+    ctx.fillRect(0, 0, 1920, 1080);
+
+    drawParallaxBasePlate(loadedImages.scene4, 0.88, 1.07, 34);
+
+    const cx = 960 - mouseX * 24;
+    const cy = 520 - mouseY * 18;
+
+    // Cổng chữ nhật phát sáng + 4 vòng cổ ngữ bảo mật xoay quanh tâm cổng
+    ctx.save();
+    ctx.translate(cx, cy);
+    for (let r = 1; r <= 4; r++) {
+      ctx.save();
+      ctx.rotate(t * (r % 2 === 0 ? 0.8 : -0.8));
+      ctx.strokeStyle = r % 2 === 0 ? 'rgba(56, 189, 248, 0.55)' : 'rgba(52, 211, 153, 0.65)';
+      ctx.lineWidth = 3.5;
+      ctx.setLineDash([70, 35]);
+      ctx.beginPath();
+      ctx.arc(0, 0, 95 + r * 68, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+    }
+    ctx.restore();
+
+    // Tia sáng Warp lao từ tâm cổng ra 4 góc màn hình
+    ctx.save();
+    ctx.globalCompositeOperation = 'screen';
+    for (let i = 0; i < 55; i++) {
+      const angle = (i / 55) * Math.PI * 2;
+      const dist = ((t * 360 + i * 55) % 980);
+      const x1 = cx + Math.cos(angle) * dist;
+      const y1 = cy + Math.sin(angle) * dist;
+      const x2 = cx + Math.cos(angle) * (dist + 65);
+      const y2 = cy + Math.sin(angle) * (dist + 65);
+      ctx.strokeStyle = i % 2 === 0 ? 'rgba(125, 211, 252, 0.55)' : 'rgba(110, 231, 183, 0.55)';
+      ctx.lineWidth = 2.2;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    if (showCanvasTypography) {
+      ctx.save();
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#7dd3fc';
+      ctx.font = 'italic 700 76px "Cormorant Garamond"';
+      ctx.fillText('Introducing', 960, 340);
+      ctx.fillStyle = '#ffffff';
+      ctx.shadowColor = 'rgba(56, 189, 248, 0.75)';
+      ctx.shadowBlur = 40;
+      ctx.font = '900 148px Inter';
+      ctx.fillText('NOVA OS', 960, 505);
+      ctx.restore();
+    }
+
+    drawZeroHUD(400, '+75%  04', true);
+
+  } else if (currentScene === 5) {
+    // =========================================================================
+    // SCENE 5: ISOMETRIC 3D CYBER-DEFENSE CITY & DATA PULSE HIGHWAYS
+    // =========================================================================
+    ctx.fillStyle = '#040814';
+    ctx.fillRect(0, 0, 1920, 1080);
+
+    drawParallaxBasePlate(loadedImages.scene5, 0.92, 1.06, 26);
+
+    const cx = 960 - mouseX * 22;
+    const cy = 540 - mouseY * 16;
+
+    const nodes = [
+      { x: cx - 460, y: cy - 210, color: '#34d399', label: 'L1 · LOCAL AI GUARD' },
+      { x: cx + 460, y: cy - 210, color: '#38bdf8', label: 'L2 · 24/7 AI SOC TOWER' },
+      { x: cx - 460, y: cy + 230, color: '#fbbf24', label: 'L3 · SAST & PENTEST LAB' },
+      { x: cx + 460, y: cy + 230, color: '#a78bfa', label: 'L4 · NATIONAL STIX GRID' }
+    ];
+
+    // Đường mạch Isometric & xung dữ liệu chạy từ 4 tòa tháp về Vòm trung tâm
+    ctx.save();
+    nodes.forEach((n, idx) => {
+      ctx.strokeStyle = `${n.color}66`;
+      ctx.lineWidth = 3;
+      ctx.setLineDash([12, 8]);
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(n.x, n.y);
+      ctx.stroke();
+
+      // Hạt xung dữ liệu chạy dọc đường cáp
+      const pProg = ((t * 0.65 + idx * 0.25) % 1);
+      const px = n.x + (cx - n.x) * pProg;
+      const py = n.y + (cy - n.y) * pProg;
+      ctx.fillStyle = n.color;
+      ctx.shadowColor = n.color;
+      ctx.shadowBlur = 18;
+      ctx.beginPath();
+      ctx.arc(px, py, 7, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    ctx.restore();
+
+    // Vòm Hologram Trung tâm StudentHub-AI Core
+    const pulse = 1 + Math.sin(t * 2.8) * 0.035;
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.scale(pulse, pulse);
+    const domeGrad = ctx.createRadialGradient(0, 0, 20, 0, 0, 210);
+    domeGrad.addColorStop(0, 'rgba(52, 211, 153, 0.55)');
+    domeGrad.addColorStop(0.65, 'rgba(16, 185, 129, 0.16)');
+    domeGrad.addColorStop(1, 'rgba(16, 185, 129, 0)');
+    ctx.fillStyle = domeGrad;
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 230, 140, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(52, 211, 153, 0.85)';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.ellipse(0, 20, 240, 105, 0, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.restore();
+
+    drawZeroHUD(500, '100%  05', true);
+  }
+
+  requestAnimationFrame(renderLoop);
+}
+requestAnimationFrame(renderLoop);
+
+function downloadSnapshot() {
+  const link = document.createElement('a');
+  const suffix = cleanPlateMode ? 'clean_plate' : 'with_hud';
+  link.download = `scene${currentScene}_studenthub_novaos_${suffix}.png`;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+function recordSingleScenePromise(sceneNum, durationMs = 4900) {
+  return new Promise((resolve) => {
+    setScene(sceneNum);
+    const stream = canvas.captureStream(60);
+    const mimeType = MediaRecorder.isTypeSupported('video/webm;codecs=vp9')
+      ? 'video/webm;codecs=vp9'
+      : 'video/webm';
+    const recorder = new MediaRecorder(stream, { mimeType, videoBitsPerSecond: 6000000 });
+    const chunks = [];
+    recorder.ondataavailable = (e) => { if (e.data.size > 0) chunks.push(e.data); };
+    recorder.onstop = () => {
+      const blob = new Blob(chunks, { type: 'video/webm' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `scene${sceneNum}_studenthub_novaos_loop.webm`;
+      a.click();
+      resolve();
+    };
+    t = 0;
+    recorder.start();
+    setTimeout(() => recorder.stop(), durationMs);
+  });
+}
+
+async function recordSceneVideo() {
+  const btn = document.getElementById('recBtn');
+  btn.disabled = true;
+  btn.textContent = `🔴 Đang ghi hình Scene ${currentScene} (5s 60fps)...`;
+  await recordSingleScenePromise(currentScene, 4900);
+  btn.disabled = false;
+  btn.textContent = '🎥 Quay Video Cảnh Này (5s .WEBM 60fps)';
+}
+
+async function recordAllFiveCleanVideos() {
+  const batchBtn = document.getElementById('batchBtn');
+  batchBtn.disabled = true;
+  if (!cleanPlateMode) toggleCleanPlate();
+  for (let s = 1; s <= 5; s++) {
+    batchBtn.textContent = `🔴 Đang quay Clean-Plate Scene ${s}/5...`;
+    statusEl.textContent = `🎬 Đang kết xuất video Clean-Plate Scene ${s}/5 (không dính HUD tĩnh, sạch watermark)...`;
+    await recordSingleScenePromise(s, 4900);
+    await new Promise(r => setTimeout(r, 400));
+  }
+  batchBtn.disabled = false;
+  batchBtn.textContent = '🎬 Quay Tự Động Cả 5 Cảnh (.WEBM)';
+  statusEl.textContent = '✅ Đã xuất hoàn tất cả 5 file video Clean-Plate .WEBM!';
+}
+</script>
+</body>
+</html>

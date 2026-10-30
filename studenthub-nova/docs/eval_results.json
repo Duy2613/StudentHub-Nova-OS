@@ -1,0 +1,113 @@
+{
+  "benchmark_version": "4.0.0-InternationalEdition",
+  "suite_type": "REPRODUCIBLE_EMPIRICAL_SUITE_WITH_WILSON_CI95",
+  "executed_at": "2026-10-26T04:44:06Z",
+  "total_execution_time_ms": 3.13,
+  "rq1_prompt_guard_ablation": [
+    {
+      "configuration": "1. No Guard (Baseline 0)",
+      "asr_pct": 100.0,
+      "tpr_recall_pct": 0.0,
+      "tpr_ci95": "[0.0%, 25.9%]",
+      "fpr_benign_pct": 0.0,
+      "direct_blocked": "0/8",
+      "indirect_rag_sanitized": "0/3",
+      "p50_latency_ms": 0.0,
+      "p95_latency_ms": 0.001
+    },
+    {
+      "configuration": "2. Stage 1 Only (Heuristic Regex)",
+      "asr_pct": 54.5,
+      "tpr_recall_pct": 45.5,
+      "tpr_ci95": "[21.3%, 72.0%]",
+      "fpr_benign_pct": 0.0,
+      "direct_blocked": "5/8",
+      "indirect_rag_sanitized": "0/3",
+      "p50_latency_ms": 0.014,
+      "p95_latency_ms": 0.025
+    },
+    {
+      "configuration": "3. Stage 1 + Normalize (NFKC/Base64/Homoglyph)",
+      "asr_pct": 36.4,
+      "tpr_recall_pct": 63.6,
+      "tpr_ci95": "[35.4%, 84.8%]",
+      "fpr_benign_pct": 0.0,
+      "direct_blocked": "7/8",
+      "indirect_rag_sanitized": "0/3",
+      "p50_latency_ms": 0.021,
+      "p95_latency_ms": 0.285
+    },
+    {
+      "configuration": "4. Stage 1 + 2 + Semantic Intent",
+      "asr_pct": 27.3,
+      "tpr_recall_pct": 72.7,
+      "tpr_ci95": "[43.4%, 90.3%]",
+      "fpr_benign_pct": 0.0,
+      "direct_blocked": "8/8",
+      "indirect_rag_sanitized": "0/3",
+      "p50_latency_ms": 0.024,
+      "p95_latency_ms": 0.062
+    },
+    {
+      "configuration": "5. Full 4-Stage Guard (+ RAG Isolation, Honey-RAG & Canary)",
+      "asr_pct": 0.0,
+      "tpr_recall_pct": 100.0,
+      "tpr_ci95": "[74.1%, 100.0%]",
+      "fpr_benign_pct": 0.0,
+      "direct_blocked": "8/8",
+      "indirect_rag_sanitized": "3/3",
+      "p50_latency_ms": 0.03,
+      "p95_latency_ms": 0.06
+    }
+  ],
+  "rq2_graduated_soar_campus_nat": [
+    {
+      "policy": "1. Alert-Only (Chỉ cảnh báo, không phản ứng tự động)",
+      "attacker_sessions_stopped_pct": 0.0,
+      "innocent_campus_students_blocked": "0 / 500 (0.0%)",
+      "collateral_damage_rate_pct": 0.0,
+      "mttr_ms": "N/A (Can thiệp thủ công)",
+      "undo_supported": false
+    },
+    {
+      "policy": "2. Hard IP Auto-Block (Chặn cứng IP khi Score >= 85)",
+      "attacker_sessions_stopped_pct": 100.0,
+      "innocent_campus_students_blocked": "500 / 500 (100.0% — Self-Inflicted DoS)",
+      "collateral_damage_rate_pct": 100.0,
+      "mttr_ms": "0.029 ms (Chặn nhầm toàn trường)",
+      "undo_supported": false
+    },
+    {
+      "policy": "3. Graduated SOAR v4 (Session Quarantine + Adaptive Tarpit + Campus NAT Allowlist + Undo)",
+      "attacker_sessions_stopped_pct": 100.0,
+      "innocent_campus_students_blocked": "0 / 500 (0.0% — 95% CI [0.0%, 0.8%])",
+      "collateral_damage_rate_pct": 0.0,
+      "mttr_ms": "0.09 ms (Undo: 0.002 ms)",
+      "undo_supported": true
+    }
+  ],
+  "rq3_sast_patch_verification": [
+    {
+      "pipeline": "1. SAST-Only (Chỉ quét tĩnh, sinh viên tự sửa thủ công)",
+      "vulnerabilities_detected": "8/8 (100%)",
+      "auto_patch_generated_pct": 0.0,
+      "verified_safe_after_rescan_pct": 0.0,
+      "pii_secret_leak_to_cloud_pct": 0.0
+    },
+    {
+      "pipeline": "2. Naive Unverified Patch (Không qua cổng Mandatory SAST Re-scan)",
+      "vulnerabilities_detected": "8/8 (100%)",
+      "auto_patch_generated_pct": 100.0,
+      "verified_safe_after_rescan_pct": 0.0,
+      "pii_secret_leak_to_cloud_pct": 100.0
+    },
+    {
+      "pipeline": "3. Deterministic SAST + HybridLLM (Redacted/Local) + Mandatory Re-scan & AST Gate",
+      "vulnerabilities_detected": "8/8 (100%)",
+      "auto_patch_generated_pct": 100.0,
+      "verified_safe_after_rescan_pct": 100.0,
+      "verified_ci95": "[56.6%, 100.0%]",
+      "pii_secret_leak_to_cloud_pct": 0.0
+    }
+  ]
+}

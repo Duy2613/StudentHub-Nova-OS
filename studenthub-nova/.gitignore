@@ -1,0 +1,13 @@
+# Secret & Environment Hygiene (H0 Mandatory Rule)
+.env
+.env.*
+.env.local
+*.pem
+*.key
+
+# Python & FastAPI
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/

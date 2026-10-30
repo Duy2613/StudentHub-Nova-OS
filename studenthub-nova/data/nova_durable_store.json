@@ -1,0 +1,614 @@
+{
+  "schema_version": "4.0.0-InternationalEdition",
+  "updated_at": "2026-10-30T15:19:02Z",
+  "xp_ledger": [
+    {
+      "entry_id": "a83d02dc",
+      "source": "scrollytelling_intro_claim (SCENE_1_SHATTER) [R]",
+      "amount": 100
+    },
+    {
+      "entry_id": "ba5e3dbf",
+      "source": "l1_prompt_injection_defended [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "f5960e3d",
+      "source": "l1_prompt_injection_defended [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "56aba19d",
+      "source": "l1_url_sandbox_check [R]",
+      "amount": 25
+    },
+    {
+      "entry_id": "d9865393",
+      "source": "l1_url_sandbox_check [R]",
+      "amount": 25
+    },
+    {
+      "entry_id": "8ca60ab4",
+      "source": "l1_hygiene_k_anonymity [H]",
+      "amount": 25
+    },
+    {
+      "entry_id": "1471e45e",
+      "source": "l2_soar_undo_verified [R]",
+      "amount": 30
+    },
+    {
+      "entry_id": "be15582f",
+      "source": "l3_sast_patch_verified [R]",
+      "amount": 50
+    },
+    {
+      "entry_id": "9dc71361",
+      "source": "l4_stix_k_anonymity_export [R]",
+      "amount": 40
+    },
+    {
+      "entry_id": "641142c3",
+      "source": "l1_honey_rag_attribution [R]",
+      "amount": 40
+    },
+    {
+      "entry_id": "09ff5459",
+      "source": "l3_canary_credential_leak_detected [R]",
+      "amount": 40
+    },
+    {
+      "entry_id": "e4edca5a",
+      "source": "flywheel_prompt_injection_league [R]",
+      "amount": 45
+    },
+    {
+      "entry_id": "e5e72d2c",
+      "source": "l2_soar_undo_verified [R]",
+      "amount": 30
+    },
+    {
+      "entry_id": "deefc5b5",
+      "source": "l3_sast_patch_verified [R]",
+      "amount": 50
+    },
+    {
+      "entry_id": "c834c9b9",
+      "source": "l3_canary_credential_leak_detected [R]",
+      "amount": 40
+    },
+    {
+      "entry_id": "fe96f56a",
+      "source": "l1_prompt_injection_defended [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "0fb5943f",
+      "source": "l1_prompt_injection_defended [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "03a396e2",
+      "source": "l1_prompt_injection_defended [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "20f6c5b7",
+      "source": "l1_prompt_injection_defended [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "483d5a63",
+      "source": "l2_soar_undo_verified [R]",
+      "amount": 30
+    },
+    {
+      "entry_id": "ef1523b0",
+      "source": "l3_sast_patch_verified [R]",
+      "amount": 50
+    },
+    {
+      "entry_id": "0908bce6",
+      "source": "l3_canary_credential_leak_detected [R]",
+      "amount": 40
+    },
+    {
+      "entry_id": "84c5af45",
+      "source": "flywheel_prompt_injection_league [R]",
+      "amount": 45
+    },
+    {
+      "entry_id": "b08551d2",
+      "source": "edu_policy_as_code_dojo [H]",
+      "amount": 40
+    },
+    {
+      "entry_id": "5c89f6a8",
+      "source": "l1_agentic_tool_firewall [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "42ea76c1",
+      "source": "l1_prompt_injection_defended [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "94c7ffbb",
+      "source": "l1_prompt_injection_defended [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "28f14995",
+      "source": "l2_soar_undo_verified [R]",
+      "amount": 30
+    },
+    {
+      "entry_id": "6cdf5dda",
+      "source": "l3_sast_patch_verified [R]",
+      "amount": 50
+    },
+    {
+      "entry_id": "2c97d8eb",
+      "source": "l3_canary_credential_leak_detected [R]",
+      "amount": 40
+    },
+    {
+      "entry_id": "66aac170",
+      "source": "l1_prompt_injection_defended [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "439a5a15",
+      "source": "l1_prompt_injection_defended [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "cc188bed",
+      "source": "l2_soar_undo_verified [R]",
+      "amount": 30
+    },
+    {
+      "entry_id": "13c07abf",
+      "source": "l3_sast_patch_verified [R]",
+      "amount": 50
+    },
+    {
+      "entry_id": "8a67e575",
+      "source": "l3_canary_credential_leak_detected [R]",
+      "amount": 40
+    },
+    {
+      "entry_id": "94c200ba",
+      "source": "l2_campus_micro_honeypot_telemetry [S]",
+      "amount": 30
+    },
+    {
+      "entry_id": "ac8c85f3",
+      "source": "flywheel_prompt_injection_league [R]",
+      "amount": 45
+    },
+    {
+      "entry_id": "03fdce11",
+      "source": "l4_federated_scam_detector_round [S]",
+      "amount": 35
+    },
+    {
+      "entry_id": "4fc447b4",
+      "source": "l3_github_pr_clean_lti_sync [H]",
+      "amount": 35
+    },
+    {
+      "entry_id": "3b839eaf",
+      "source": "edu_policy_as_code_dojo [H]",
+      "amount": 40
+    },
+    {
+      "entry_id": "9274f3a7",
+      "source": "l1_consent_deepfake_drill_completed [S]",
+      "amount": 40
+    },
+    {
+      "entry_id": "e0044dfe",
+      "source": "l1_prompt_injection_defended [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "32874903",
+      "source": "l1_prompt_injection_defended [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "d3e36705",
+      "source": "l2_soar_undo_verified [R]",
+      "amount": 30
+    },
+    {
+      "entry_id": "8bc2f668",
+      "source": "l3_sast_patch_verified [R]",
+      "amount": 50
+    },
+    {
+      "entry_id": "77f00fd1",
+      "source": "l3_canary_credential_leak_detected [R]",
+      "amount": 40
+    },
+    {
+      "entry_id": "c78c0b6b",
+      "source": "flywheel_prompt_injection_league [R]",
+      "amount": 45
+    },
+    {
+      "entry_id": "952a8a51",
+      "source": "edu_policy_as_code_dojo [H]",
+      "amount": 40
+    },
+    {
+      "entry_id": "30c7e0e2",
+      "source": "scrollytelling_intro_claim (SCENE_1_SHATTER) [R]",
+      "amount": 100
+    },
+    {
+      "entry_id": "fffe1244",
+      "source": "scrollytelling_intro_claim (SCENE_1_SHATTER) [R]",
+      "amount": 100
+    },
+    {
+      "entry_id": "5ec88220",
+      "source": "scrollytelling_intro_claim (SCENE_1_SHATTER) [R]",
+      "amount": 100
+    },
+    {
+      "entry_id": "28fdf63a",
+      "source": "scrollytelling_intro_claim (SCENE_4_PORTAL_WARP) [R]",
+      "amount": 100
+    },
+    {
+      "entry_id": "5139a8cc",
+      "source": "scrollytelling_intro_claim (SCENE_5_CITY_UNLOCK) [R]",
+      "amount": 0
+    },
+    {
+      "entry_id": "16ad709b",
+      "source": "scrollytelling_intro_claim (intro) [R]",
+      "amount": 0
+    },
+    {
+      "entry_id": "da870c42",
+      "source": "l1_url_sandbox_check [R]",
+      "amount": 25
+    },
+    {
+      "entry_id": "7b55918f",
+      "source": "l1_url_sandbox_check [R]",
+      "amount": 25
+    },
+    {
+      "entry_id": "316a94d2",
+      "source": "l1_url_sandbox_check [R]",
+      "amount": 25
+    },
+    {
+      "entry_id": "469cabad",
+      "source": "l3_sast_patch_verified [R]",
+      "amount": 50
+    },
+    {
+      "entry_id": "7bcc1f64",
+      "source": "l3_sast_patch_verified [R]",
+      "amount": 50
+    },
+    {
+      "entry_id": "fc2f70ec",
+      "source": "l3_sast_patch_verified [R]",
+      "amount": 50
+    },
+    {
+      "entry_id": "597dee2f",
+      "source": "l3_sast_patch_verified [R]",
+      "amount": 50
+    },
+    {
+      "entry_id": "00bd4bbc",
+      "source": "l1_prompt_injection_defended [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "a1541943",
+      "source": "l1_prompt_injection_defended [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "23551721",
+      "source": "l2_soar_undo_verified [R]",
+      "amount": 30
+    },
+    {
+      "entry_id": "c540095f",
+      "source": "l3_sast_patch_verified [R]",
+      "amount": 50
+    },
+    {
+      "entry_id": "f53f1660",
+      "source": "l3_canary_credential_leak_detected [R]",
+      "amount": 40
+    },
+    {
+      "entry_id": "9227abae",
+      "source": "flywheel_prompt_injection_league [R]",
+      "amount": 45
+    },
+    {
+      "entry_id": "d312c5e0",
+      "source": "edu_policy_as_code_dojo [H]",
+      "amount": 40
+    },
+    {
+      "entry_id": "d7580464",
+      "source": "l2_soar_undo_verified [R]",
+      "amount": 30
+    },
+    {
+      "entry_id": "e1e1ba35",
+      "source": "l3_sast_patch_verified [R]",
+      "amount": 50
+    },
+    {
+      "entry_id": "752e2fa9",
+      "source": "l3_canary_credential_leak_detected [R]",
+      "amount": 40
+    },
+    {
+      "entry_id": "71cab791",
+      "source": "l1_prompt_injection_defended [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "4ad34835",
+      "source": "l1_url_sandbox_check [R]",
+      "amount": 25
+    }
+  ],
+  "claimed_idempotency_keys": [
+    "canary_trigger_NOVA_CANARY_KEY_B79CC324CFB00822",
+    "sast_378b67cf8318",
+    "tool_fw_send_external_webhook",
+    "sast_f9e5b09f4ce2",
+    "l1_block_-7107010086794983044",
+    "sast_330752d17edb",
+    "l1_block_5085371626846605205",
+    "undo_resp_c3868329",
+    "sast_570046f2e9f1",
+    "sast_2ff0e7fb0cae",
+    "honeypot_PI-HONEYPOT-KTX-B9_10.20.4.88",
+    "intro_scene_4_sv2026",
+    "league_-3106756182860288594",
+    "l1_block_-5444927474729297712",
+    "l1_block_4738860432783823110",
+    "hygiene_5BAA6",
+    "audit_v4_scene_1",
+    "l1_block_504504579409255410",
+    "l1_block_-1208220062952832345",
+    "canary_trigger_NOVA_CANARY_KEY_A30A9F30FBB8B034",
+    "sast_70228227012b",
+    "dojo_-9078315822000091069",
+    "undo_resp_4ceb76ab",
+    "undo_resp_b01e80c5",
+    "stix_export_7_TLP:GREEN",
+    "dojo_5195976824680737060",
+    "url_http://169.254.169.254/latest/meta-data/iam/",
+    "intro-session-claim-001",
+    "undo_resp_fef6c54d",
+    "l1_block_-2262481027511602826",
+    "canary_trigger_NOVA_CANARY_KEY_8B81F0A539090E59",
+    "l1_block_-5609421427044126888",
+    "l1_block_4532368846204221876",
+    "dojo_-7102805630021085501",
+    "url_https://studenthub.edu.vn/courses",
+    "l1_block_-3707428032846877423",
+    "url_https://www.youtube.com/watch?v=YkKM_gAekE4",
+    "honey_HONEY-RAG-DOC-9F2A_atk_rag_99",
+    "dojo_8692137917830887419",
+    "intro_scene_3_sv2026",
+    "l1_block_6890900054145387518",
+    "intro_scene_2_sv2026",
+    "l4_fedavg_dp_round",
+    "league_-3007309971448421961",
+    "undo_resp_8286f40f",
+    "l1_block_354001922041101091",
+    "canary_trigger_NOVA_CANARY_KEY_3CFB59588E65FB04",
+    "url_http://localhost:5173/",
+    "league_5282030430409401470",
+    "l1_block_-3233179131921100521",
+    "undo_resp_a200b685",
+    "sast_e46005ab92d0",
+    "canary_trigger_NOVA_CANARY_KEY_AA2C79BA692091DC",
+    "canary_trigger_NOVA_CANARY_KEY_654FF58793559E3B",
+    "deepfake_drill_SV-2026-001_FAKE_ACADEMIC_ADVISOR_URGENT_TRANSFER",
+    "l1_block_3602613877844001016",
+    "intro_scene_5_sv2026",
+    "canary_trigger_NOVA_CANARY_KEY_768D51EF9D7DF7F1",
+    "sast_f3076fc24bde",
+    "sast_f605e30e55a7",
+    "canary_trigger_NOVA_CANARY_KEY_3D82E63166474EF1",
+    "l1_block_-118707547459429704",
+    "url_https://chatgpt.com/",
+    "sast_e73342c0d48d",
+    "undo_resp_793d87a8",
+    "league_-2909154173924612904",
+    "gh_pr_student-se-capstone-2026_42",
+    "league_-5452424718927325309",
+    "sast_4606178b1e42",
+    "sast_c50df010fc6a",
+    "url_http://127.0.0.1:8000/admin",
+    "intro_scene_1_sv2026",
+    "undo_resp_c2612079"
+  ],
+  "security_events": [
+    {
+      "event_id": "ev_1a4079c3ea",
+      "response_id": "resp_07961718",
+      "seq": 1044,
+      "ts": "2026-10-30T15:19:02Z",
+      "layer": "L2",
+      "source": "real",
+      "type": "l1.ssrf.blocked",
+      "severity": "critical",
+      "actor": {
+        "session_id_hash": "sha256:6c6dc82cdd3953",
+        "client_ip": "203.162.10.1",
+        "is_campus_nat_ip": true
+      },
+      "evidence": {
+        "anomaly_score": 100,
+        "matched_sigma_rules": [
+          "SIGMA-NET-004: Internal/Cloud Metadata SSRF Probe"
+        ],
+        "reasons": [
+          "🛑 [SSRF BLOCKED]: Tên miền trỏ về IP nội bộ/đặc quyền (127.0.0.1 - LOOPBACK)",
+          "Bảo vệ IP NAT Campus (203.162.10.1): Cô lập đúng Session vi phạm (TTL 900s), giữ an toàn cho 500+ sinh viên cùng mạng"
+        ]
+      },
+      "response": "quarantine",
+      "response_ttl_s": 900,
+      "expires_at": 1793374442.49,
+      "requires_human_approval": false,
+      "undone": false
+    },
+    {
+      "event_id": "ev_c7d53c3baa",
+      "response_id": "resp_b186d2ab",
+      "seq": 1043,
+      "ts": "2026-10-30T15:18:45Z",
+      "layer": "L2",
+      "source": "real",
+      "type": "l1.prompt_injection.blocked",
+      "severity": "critical",
+      "actor": {
+        "session_id_hash": "sha256:6c6dc82cdd3953",
+        "client_ip": "127.0.0.1",
+        "is_campus_nat_ip": true
+      },
+      "evidence": {
+        "anomaly_score": 100,
+        "matched_sigma_rules": [
+          "SIGMA-AI-001: Direct Prompt Override / Jailbreak Attempt"
+        ],
+        "reasons": [
+          "[Stage 2 Heuristic - Direct] Cố gắng hủy bỏ chỉ dẫn hệ thống (Instruction Override)",
+          "[Stage 2 Heuristic - Direct] Dò hỏi System Prompt / Canary Token (System Prompt Exfiltration)",
+          "Bảo vệ IP NAT Campus (127.0.0.1): Cô lập đúng Session vi phạm (TTL 900s), giữ an toàn cho 500+ sinh viên cùng mạng"
+        ]
+      },
+      "response": "quarantine",
+      "response_ttl_s": 900,
+      "expires_at": 1793374425.51,
+      "requires_human_approval": false,
+      "undone": false
+    },
+    {
+      "event_id": "ev_4c2e3b2120",
+      "response_id": "resp_c95044ad",
+      "seq": 1042,
+      "ts": "2026-10-30T15:17:18Z",
+      "layer": "L2",
+      "source": "real",
+      "type": "l1.ssrf.blocked",
+      "severity": "high",
+      "actor": {
+        "session_id_hash": "sha256:5ca3da1d8d9a25",
+        "client_ip": "203.162.10.1",
+        "is_campus_nat_ip": true
+      },
+      "evidence": {
+        "anomaly_score": 88,
+        "matched_sigma_rules": [
+          "SIGMA-NET-004: Internal/Cloud Metadata SSRF Probe"
+        ],
+        "reasons": [
+          "[SSRF Guard] Ngăn chặn truy vấn tới Cloud Metadata 169.254.169.254",
+          "Bảo vệ IP NAT Campus (203.162.10.1): Cô lập đúng Session vi phạm (TTL 900s), giữ an toàn cho 500+ sinh viên cùng mạng"
+        ]
+      },
+      "response": "quarantine",
+      "response_ttl_s": 900,
+      "expires_at": 1793374338.97,
+      "requires_human_approval": false,
+      "undone": false
+    },
+    {
+      "event_id": "ev_4f3f1514a1",
+      "response_id": "resp_81e815bc",
+      "seq": 1041,
+      "ts": "2026-10-30T15:17:18Z",
+      "layer": "L2",
+      "source": "real",
+      "type": "l1.prompt_injection.blocked",
+      "severity": "high",
+      "actor": {
+        "session_id_hash": "sha256:1fb5a232b499e7",
+        "client_ip": "203.162.10.1",
+        "is_campus_nat_ip": true
+      },
+      "evidence": {
+        "anomaly_score": 78,
+        "matched_sigma_rules": [
+          "SIGMA-AI-001: Direct Prompt Override / Jailbreak Attempt"
+        ],
+        "reasons": [
+          "[Stage 2 Heuristic] Cố gắng hủy bỏ chỉ dẫn hệ thống (Instruction Override)"
+        ]
+      },
+      "response": "throttle",
+      "response_ttl_s": 300,
+      "expires_at": 1793373738.97,
+      "requires_human_approval": false,
+      "undone": false
+    }
+  ],
+  "passport_events": [
+    {
+      "revision": 3,
+      "event_id": "pass_ev_e842a614",
+      "owner_id": "SV-2026-001",
+      "subject_type": "NOVA_CYBER_DEFENSE_PROOF",
+      "subject_id": "4ad34835",
+      "verdict_or_milestone": "L1_URL_ANALYZED",
+      "provenance_class": "DETERMINISTIC_RULE",
+      "detail": "Hoàn thành thực hành bảo mật: l1_url_sandbox_check [R] (+25 SEC-XP)",
+      "xp_delta": 25,
+      "prev_hash": "103a2b04b7e0f5ab...",
+      "sha256_hash": "db3276105c4dd75ee6a9722825851d9cc418fc49dd5c740069c0641bcc3c472c",
+      "occurred_at": "2026-10-30T15:19:02Z"
+    },
+    {
+      "revision": 2,
+      "event_id": "pass_ev_88d92391",
+      "owner_id": "SV-2026-001",
+      "subject_type": "NOVA_CYBER_DEFENSE_PROOF",
+      "subject_id": "71cab791",
+      "verdict_or_milestone": "L1_INJECTION_BLOCKED",
+      "provenance_class": "DETERMINISTIC_RULE",
+      "detail": "Hoàn thành thực hành bảo mật: l1_prompt_injection_defended [R] (+35 SEC-XP)",
+      "xp_delta": 35,
+      "prev_hash": "9593485bf95af973...",
+      "sha256_hash": "103a2b04b7e0f5ab9dcca6d177f579f4dd50b10e22b030bb8d97101128f1e490",
+      "occurred_at": "2026-10-30T15:18:45Z"
+    },
+    {
+      "revision": 1,
+      "event_id": "pass_ev_7ab8b19d",
+      "owner_id": "SV-2026-001",
+      "subject_type": "PASSPORT_GENESIS",
+      "subject_id": "init_sv2026_001",
+      "verdict_or_milestone": "INITIALIZED_ZERO_TRUST_PASSPORT",
+      "provenance_class": "OFFICIAL",
+      "detail": "Khởi tạo Hộ chiếu Bằng chứng Sống chuẩn SHA-256 Append-Only cho sinh viên SV-2026-001",
+      "xp_delta": 0,
+      "prev_hash": "0000000000000000...",
+      "sha256_hash": "9593485bf95af973d600b35ddbc330b41d030a3f4f83e4e532794e43f4a7ae57",
+      "occurred_at": "2026-10-30T15:17:18Z"
+    }
+  ],
+  "league_submissions": [],
+  "canary_credentials": []
+}

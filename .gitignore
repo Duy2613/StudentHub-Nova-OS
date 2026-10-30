@@ -1,0 +1,53 @@
+# ===============================================================================
+# Secret & Environment Hygiene (H0 Mandatory Rule - Zero Leakage)
+# ===============================================================================
+.env
+.env.*
+.env.local
+*.env
+*.pem
+*.key
+*.cert
+*.pfx
+
+# Ignore sensitive env files in any subfolder
+**/.env
+**/.env.*
+**/.env.local
+
+# Python & FastAPI
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+.pytest_cache/
+.coverage
+htmlcov/
+**/*.pyc
+**/__pycache__/
+
+# Node & Vite / React
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.next/
+out/
+build/
+.turbo/
+.vercel/
+
+# Logs & Temporary Files
+*.log
+**/*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS Specific
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,501 @@
+{
+  "schema_version": "4.0.0-InternationalEdition",
+  "updated_at": "2026-10-26T04:56:25Z",
+  "xp_ledger": [
+    {
+      "entry_id": "47b4fa69",
+      "source": "scrollytelling_intro_claim (SCENE_1_SHATTER) [R]",
+      "amount": 100
+    },
+    {
+      "entry_id": "b2e27ea0",
+      "source": "l1_prompt_injection_defended [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "5f21ea29",
+      "source": "l1_prompt_injection_defended [R]",
+      "amount": 35
+    },
+    {
+      "entry_id": "5b426910",
+      "source": "l1_url_sandbox_check [R]",
+      "amount": 25
+    },
+    {
+      "entry_id": "eea7ebda",
+      "source": "l1_url_sandbox_check [R]",
+      "amount": 25
+    },
+    {
+      "entry_id": "72558dff",
+      "source": "l1_hygiene_k_anonymity [H]",
+      "amount": 25
+    },
+    {
+      "entry_id": "f2263972",
+      "source": "l2_soar_undo_verified [R]",
+      "amount": 30
+    },
+    {
+      "entry_id": "d75fece6",
+      "source": "l3_sast_patch_verified [R]",
+      "amount": 50
+    },
+    {
+      "entry_id": "1f772748",
+      "source": "l4_stix_k_anonymity_export [R]",
+      "amount": 40
+    },
+    {
+      "entry_id": "3b15731b",
+      "source": "l1_honey_rag_attribution [R]",
+      "amount": 40
+    },
+    {
+      "entry_id": "b74a9645",
+      "source": "l3_canary_credential_leak_detected [R]",
+      "amount": 40
+    }
+  ],
+  "claimed_idempotency_keys": [
+    "url_https://studenthub.edu.vn/courses",
+    "canary_trigger_NOVA_CANARY_KEY_38E1D7D40E83001D",
+    "sast_fc089e474d0c",
+    "url_http://169.254.169.254/latest/meta-data/iam/",
+    "l1_block_-5125360965930442661",
+    "undo_resp_def92fb2",
+    "stix_export_7_TLP:GREEN",
+    "l1_block_-6422477529279286424",
+    "audit_v4_scene_1",
+    "honey_HONEY-RAG-DOC-9F2A_atk_rag_99",
+    "hygiene_5BAA6"
+  ],
+  "security_events": [
+    {
+      "event_id": "ev_7e7e223deb",
+      "response_id": "resp_46b3aafb",
+      "seq": 1048,
+      "ts": "2026-10-26T04:56:25Z",
+      "layer": "L2",
+      "source": "real",
+      "type": "l3.canary_credential_leaked",
+      "severity": "critical",
+      "actor": {
+        "session_id_hash": "sha256:c481f33a93402e",
+        "client_ip": "185.220.101.45",
+        "is_campus_nat_ip": false
+      },
+      "evidence": {
+        "anomaly_score": 96,
+        "matched_sigma_rules": [
+          "SIGMA-GEN-001: Behavioral Anomaly Threshold Exceeded"
+        ],
+        "reasons": [
+          "[R] Canary Credentials (A2): Khóa bẫy NOVA_CANARY_KEY_38E1D7D4... vừa bị gọi từ IP 185.220.101.45!",
+          "Cảnh báo khẩn cấp cho sinh viên SV-2026-001: Kho đồ án 'capstone-ai-web' đã bị lộ công khai!"
+        ]
+      },
+      "response": "pending_human_block",
+      "response_ttl_s": 3600,
+      "expires_at": 1792994185.2,
+      "requires_human_approval": true,
+      "undone": false
+    },
+    {
+      "event_id": "ev_18a98db28f",
+      "response_id": "resp_bf816452",
+      "seq": 1047,
+      "ts": "2026-10-26T04:56:21Z",
+      "layer": "L2",
+      "source": "real",
+      "type": "l1.honey_rag_trap_triggered",
+      "severity": "critical",
+      "actor": {
+        "session_id_hash": "sha256:d3f46b637bfd07",
+        "client_ip": "203.162.4.190",
+        "is_campus_nat_ip": true
+      },
+      "evidence": {
+        "anomaly_score": 92,
+        "matched_sigma_rules": [
+          "SIGMA-GEN-001: Behavioral Anomaly Threshold Exceeded"
+        ],
+        "reasons": [
+          "[R] Honey-RAG Trap (A1): Phát hiện khóa mồi HONEY-RAG-DOC-9F2A bị trích xuất trái phép!",
+          "Truy vết chính xác tài liệu bị khai thác: DOC-SYLLABUS-TRAP-01 (Đề cương Mật mã học & An toàn Hệ thống (Tài liệu Mồi Truy Vết))",
+          "Bảo vệ IP NAT Campus (203.162.4.190): Cô lập đúng Session vi phạm (TTL 900s), giữ an toàn cho 500+ sinh viên cùng mạng"
+        ]
+      },
+      "response": "quarantine",
+      "response_ttl_s": 900,
+      "expires_at": 1792991481.09,
+      "requires_human_approval": false,
+      "undone": false
+    },
+    {
+      "event_id": "ev_50b5b8780e",
+      "response_id": "resp_def92fb2",
+      "seq": 1046,
+      "ts": "2026-10-26T04:56:06Z",
+      "layer": "L2",
+      "source": "simulated",
+      "type": "cyber_range.brute_force_campus_nat",
+      "severity": "critical",
+      "actor": {
+        "session_id_hash": "sha256:2902c1567fe2b6",
+        "client_ip": "203.162.10.1",
+        "is_campus_nat_ip": true
+      },
+      "evidence": {
+        "anomaly_score": 92,
+        "matched_sigma_rules": [
+          "SIGMA-AUTH-003: High-Velocity Credential Brute-Force on Shared NAT"
+        ],
+        "reasons": [
+          "[S] Kịch bản Cyber Range: Tấn công Brute-force từ mạng Wi-Fi Ký túc xá (203.162.10.1)",
+          "Kiểm chứng RQ2: Cô lập đúng Session kẻ tấn công, bảo vệ 500 sinh viên lành tính cùng IP NAT",
+          "Bảo vệ IP NAT Campus (203.162.10.1): Cô lập đúng Session vi phạm (TTL 900s), giữ an toàn cho 500+ sinh viên cùng mạng"
+        ]
+      },
+      "response": "rolled_back_by_soc_analyst",
+      "response_ttl_s": 0,
+      "expires_at": 1792991466.14,
+      "requires_human_approval": false,
+      "undone": true
+    },
+    {
+      "event_id": "ev_2ed2c1f2d7",
+      "response_id": "resp_3f0b0e44",
+      "seq": 1045,
+      "ts": "2026-10-26T04:55:59Z",
+      "layer": "L2",
+      "source": "real",
+      "type": "l1.ssrf.blocked",
+      "severity": "critical",
+      "actor": {
+        "session_id_hash": "sha256:6c6dc82cdd3953",
+        "client_ip": "203.162.10.1",
+        "is_campus_nat_ip": true
+      },
+      "evidence": {
+        "anomaly_score": 100,
+        "matched_sigma_rules": [
+          "SIGMA-NET-004: Internal/Cloud Metadata SSRF Probe"
+        ],
+        "reasons": [
+          "🛑 [SSRF BLOCKED]: Tên miền trỏ về IP nội bộ/đặc quyền (169.254.169.254 - LINK_LOCAL_METADATA)",
+          "Bảo vệ IP NAT Campus (203.162.10.1): Cô lập đúng Session vi phạm (TTL 900s), giữ an toàn cho 500+ sinh viên cùng mạng"
+        ]
+      },
+      "response": "quarantine",
+      "response_ttl_s": 900,
+      "expires_at": 1792991459.86,
+      "requires_human_approval": false,
+      "undone": false
+    },
+    {
+      "event_id": "ev_99dc1449ac",
+      "response_id": "resp_15aebf8e",
+      "seq": 1044,
+      "ts": "2026-10-26T04:55:49Z",
+      "layer": "L2",
+      "source": "real",
+      "type": "l1.prompt_injection.blocked",
+      "severity": "critical",
+      "actor": {
+        "session_id_hash": "sha256:6c6dc82cdd3953",
+        "client_ip": "127.0.0.1",
+        "is_campus_nat_ip": true
+      },
+      "evidence": {
+        "anomaly_score": 100,
+        "matched_sigma_rules": [
+          "SIGMA-AI-001: Direct Prompt Override / Jailbreak Attempt"
+        ],
+        "reasons": [
+          "[Stage 1 Normalize] Giải mã payload ẩn Base64 chứa chỉ thị điều khiển",
+          "[Stage 2 Heuristic - Direct] Cố gắng hủy bỏ chỉ dẫn hệ thống (Instruction Override)",
+          "[Stage 2 Heuristic - Direct] Dò hỏi System Prompt / Canary Token (System Prompt Exfiltration)",
+          "Bảo vệ IP NAT Campus (127.0.0.1): Cô lập đúng Session vi phạm (TTL 900s), giữ an toàn cho 500+ sinh viên cùng mạng"
+        ]
+      },
+      "response": "quarantine",
+      "response_ttl_s": 900,
+      "expires_at": 1792991449.04,
+      "requires_human_approval": false,
+      "undone": false
+    },
+    {
+      "event_id": "ev_107027dabb",
+      "response_id": "resp_1b160271",
+      "seq": 1043,
+      "ts": "2026-10-26T04:55:46Z",
+      "layer": "L2",
+      "source": "real",
+      "type": "l1.prompt_injection.blocked",
+      "severity": "critical",
+      "actor": {
+        "session_id_hash": "sha256:6c6dc82cdd3953",
+        "client_ip": "127.0.0.1",
+        "is_campus_nat_ip": true
+      },
+      "evidence": {
+        "anomaly_score": 100,
+        "matched_sigma_rules": [
+          "SIGMA-AI-001: Direct Prompt Override / Jailbreak Attempt"
+        ],
+        "reasons": [
+          "[Stage 2 Heuristic - Direct] Cố gắng hủy bỏ chỉ dẫn hệ thống (Instruction Override)",
+          "[Stage 2 Heuristic - Direct] Dò hỏi System Prompt / Canary Token (System Prompt Exfiltration)",
+          "Bảo vệ IP NAT Campus (127.0.0.1): Cô lập đúng Session vi phạm (TTL 900s), giữ an toàn cho 500+ sinh viên cùng mạng"
+        ]
+      },
+      "response": "quarantine",
+      "response_ttl_s": 900,
+      "expires_at": 1792991446.99,
+      "requires_human_approval": false,
+      "undone": false
+    },
+    {
+      "event_id": "ev_3fd32c4585",
+      "response_id": "resp_460d8254",
+      "seq": 1042,
+      "ts": "2026-10-26T04:55:12Z",
+      "layer": "L2",
+      "source": "real",
+      "type": "l1.ssrf.blocked",
+      "severity": "high",
+      "actor": {
+        "session_id_hash": "sha256:5ca3da1d8d9a25",
+        "client_ip": "203.162.10.1",
+        "is_campus_nat_ip": true
+      },
+      "evidence": {
+        "anomaly_score": 88,
+        "matched_sigma_rules": [
+          "SIGMA-NET-004: Internal/Cloud Metadata SSRF Probe"
+        ],
+        "reasons": [
+          "[SSRF Guard] Ngăn chặn truy vấn tới Cloud Metadata 169.254.169.254",
+          "Bảo vệ IP NAT Campus (203.162.10.1): Cô lập đúng Session vi phạm (TTL 900s), giữ an toàn cho 500+ sinh viên cùng mạng"
+        ]
+      },
+      "response": "quarantine",
+      "response_ttl_s": 900,
+      "expires_at": 1792991412.85,
+      "requires_human_approval": false,
+      "undone": false
+    },
+    {
+      "event_id": "ev_209f4bec53",
+      "response_id": "resp_ce7c8888",
+      "seq": 1041,
+      "ts": "2026-10-26T04:55:12Z",
+      "layer": "L2",
+      "source": "real",
+      "type": "l1.prompt_injection.blocked",
+      "severity": "high",
+      "actor": {
+        "session_id_hash": "sha256:1fb5a232b499e7",
+        "client_ip": "203.162.10.1",
+        "is_campus_nat_ip": true
+      },
+      "evidence": {
+        "anomaly_score": 78,
+        "matched_sigma_rules": [
+          "SIGMA-AI-001: Direct Prompt Override / Jailbreak Attempt"
+        ],
+        "reasons": [
+          "[Stage 2 Heuristic] Cố gắng hủy bỏ chỉ dẫn hệ thống (Instruction Override)"
+        ]
+      },
+      "response": "throttle",
+      "response_ttl_s": 300,
+      "expires_at": 1792990812.85,
+      "requires_human_approval": false,
+      "undone": false
+    }
+  ],
+  "passport_events": [
+    {
+      "revision": 12,
+      "event_id": "pass_ev_08423986",
+      "owner_id": "SV-2026-001",
+      "subject_type": "NOVA_CYBER_DEFENSE_PROOF",
+      "subject_id": "b74a9645",
+      "verdict_or_milestone": "L3_CANARY_REPO_PROTECTED",
+      "provenance_class": "DETERMINISTIC_RULE",
+      "detail": "Hoàn thành thực hành bảo mật: l3_canary_credential_leak_detected [R] (+40 SEC-XP)",
+      "xp_delta": 40,
+      "prev_hash": "2daf3786d65fec23...",
+      "sha256_hash": "b4d26155403b764d2625ebf6ce33dc1ddf3991ccadc8781760c95401295130d2",
+      "occurred_at": "2026-10-26T04:56:25Z"
+    },
+    {
+      "revision": 11,
+      "event_id": "pass_ev_e2413fa9",
+      "owner_id": "SV-2026-001",
+      "subject_type": "NOVA_CYBER_DEFENSE_PROOF",
+      "subject_id": "3b15731b",
+      "verdict_or_milestone": "L1_HONEY_RAG_ATTRIBUTED",
+      "provenance_class": "DETERMINISTIC_RULE",
+      "detail": "Hoàn thành thực hành bảo mật: l1_honey_rag_attribution [R] (+40 SEC-XP)",
+      "xp_delta": 40,
+      "prev_hash": "27aa6b6800fe8963...",
+      "sha256_hash": "2daf3786d65fec2365b3e7e120dcec82fba30446b52004c1c567bef4c6be0b98",
+      "occurred_at": "2026-10-26T04:56:21Z"
+    },
+    {
+      "revision": 10,
+      "event_id": "pass_ev_777cde94",
+      "owner_id": "SV-2026-001",
+      "subject_type": "NOVA_CYBER_DEFENSE_PROOF",
+      "subject_id": "1f772748",
+      "verdict_or_milestone": "L4_K_ANONYMITY_VERIFIED",
+      "provenance_class": "DETERMINISTIC_RULE",
+      "detail": "Hoàn thành thực hành bảo mật: l4_stix_k_anonymity_export [R] (+40 SEC-XP)",
+      "xp_delta": 40,
+      "prev_hash": "26d6b24806a79417...",
+      "sha256_hash": "27aa6b6800fe8963dc995a294bf504781f98b4ea655675ee2a68eef939344d15",
+      "occurred_at": "2026-10-26T04:56:19Z"
+    },
+    {
+      "revision": 9,
+      "event_id": "pass_ev_3cdc50c7",
+      "owner_id": "SV-2026-001",
+      "subject_type": "NOVA_CYBER_DEFENSE_PROOF",
+      "subject_id": "d75fece6",
+      "verdict_or_milestone": "L3_PATCH_VERIFIED_SAFE",
+      "provenance_class": "DETERMINISTIC_RULE",
+      "detail": "Hoàn thành thực hành bảo mật: l3_sast_patch_verified [R] (+50 SEC-XP)",
+      "xp_delta": 50,
+      "prev_hash": "4fba8845e0aa8245...",
+      "sha256_hash": "26d6b24806a7941746501892f0c0c2ab9849e315bb522be1ed2926fdd72ebe4c",
+      "occurred_at": "2026-10-26T04:56:14Z"
+    },
+    {
+      "revision": 8,
+      "event_id": "pass_ev_bdabc0a1",
+      "owner_id": "SV-2026-001",
+      "subject_type": "NOVA_CYBER_DEFENSE_PROOF",
+      "subject_id": "f2263972",
+      "verdict_or_milestone": "L2_SOAR_UNDO_EXECUTED",
+      "provenance_class": "DETERMINISTIC_RULE",
+      "detail": "Hoàn thành thực hành bảo mật: l2_soar_undo_verified [R] (+30 SEC-XP)",
+      "xp_delta": 30,
+      "prev_hash": "d3e2da8fbf3b1e7a...",
+      "sha256_hash": "4fba8845e0aa82459989dbf2c6d8349bca12e2d1680885a052a78569efefc03a",
+      "occurred_at": "2026-10-26T04:56:08Z"
+    },
+    {
+      "revision": 7,
+      "event_id": "pass_ev_a9cd4fb4",
+      "owner_id": "SV-2026-001",
+      "subject_type": "NOVA_CYBER_DEFENSE_PROOF",
+      "subject_id": "72558dff",
+      "verdict_or_milestone": "L1_ENDPOINT_HYGIENE_VERIFIED",
+      "provenance_class": "DETERMINISTIC_RULE",
+      "detail": "Hoàn thành thực hành bảo mật: l1_hygiene_k_anonymity [H] (+25 SEC-XP)",
+      "xp_delta": 25,
+      "prev_hash": "6cffa6f182c5a0d9...",
+      "sha256_hash": "d3e2da8fbf3b1e7a3b2ac293f1bf82de2b2102253972455a0d3ae2ccef28c58c",
+      "occurred_at": "2026-10-26T04:56:04Z"
+    },
+    {
+      "revision": 6,
+      "event_id": "pass_ev_e8923ae3",
+      "owner_id": "SV-2026-001",
+      "subject_type": "NOVA_CYBER_DEFENSE_PROOF",
+      "subject_id": "eea7ebda",
+      "verdict_or_milestone": "L1_URL_ANALYZED",
+      "provenance_class": "DETERMINISTIC_RULE",
+      "detail": "Hoàn thành thực hành bảo mật: l1_url_sandbox_check [R] (+25 SEC-XP)",
+      "xp_delta": 25,
+      "prev_hash": "5b54419c2fc9fdc9...",
+      "sha256_hash": "6cffa6f182c5a0d9a62f987d5710e0727572801cecccf99de044a05221617087",
+      "occurred_at": "2026-10-26T04:56:02Z"
+    },
+    {
+      "revision": 5,
+      "event_id": "pass_ev_4da38b70",
+      "owner_id": "SV-2026-001",
+      "subject_type": "NOVA_CYBER_DEFENSE_PROOF",
+      "subject_id": "5b426910",
+      "verdict_or_milestone": "L1_URL_ANALYZED",
+      "provenance_class": "DETERMINISTIC_RULE",
+      "detail": "Hoàn thành thực hành bảo mật: l1_url_sandbox_check [R] (+25 SEC-XP)",
+      "xp_delta": 25,
+      "prev_hash": "293dc4c0ee22b40c...",
+      "sha256_hash": "5b54419c2fc9fdc90ee940e822358434c83a5777346c25ecc17161f344b22336",
+      "occurred_at": "2026-10-26T04:55:59Z"
+    },
+    {
+      "revision": 4,
+      "event_id": "pass_ev_8831c116",
+      "owner_id": "SV-2026-001",
+      "subject_type": "NOVA_CYBER_DEFENSE_PROOF",
+      "subject_id": "5f21ea29",
+      "verdict_or_milestone": "L1_INJECTION_BLOCKED",
+      "provenance_class": "DETERMINISTIC_RULE",
+      "detail": "Hoàn thành thực hành bảo mật: l1_prompt_injection_defended [R] (+35 SEC-XP)",
+      "xp_delta": 35,
+      "prev_hash": "6d9824d762c7c99e...",
+      "sha256_hash": "293dc4c0ee22b40c902c94eae9b755003502643c2bfdd8a7cb2b33a01ac233f1",
+      "occurred_at": "2026-10-26T04:55:49Z"
+    },
+    {
+      "revision": 3,
+      "event_id": "pass_ev_e770a715",
+      "owner_id": "SV-2026-001",
+      "subject_type": "NOVA_CYBER_DEFENSE_PROOF",
+      "subject_id": "b2e27ea0",
+      "verdict_or_milestone": "L1_INJECTION_BLOCKED",
+      "provenance_class": "DETERMINISTIC_RULE",
+      "detail": "Hoàn thành thực hành bảo mật: l1_prompt_injection_defended [R] (+35 SEC-XP)",
+      "xp_delta": 35,
+      "prev_hash": "7fe7d800793f8d76...",
+      "sha256_hash": "6d9824d762c7c99e56de75f6045c8a08af912aad99135bf2092e1952d0dbe28c",
+      "occurred_at": "2026-10-26T04:55:46Z"
+    },
+    {
+      "revision": 2,
+      "event_id": "pass_ev_ca754255",
+      "owner_id": "SV-2026-001",
+      "subject_type": "NOVA_CYBER_DEFENSE_PROOF",
+      "subject_id": "47b4fa69",
+      "verdict_or_milestone": "SCENE_1_SHATTER",
+      "provenance_class": "DETERMINISTIC_RULE",
+      "detail": "Hoàn thành thực hành bảo mật: scrollytelling_intro_claim (SCENE_1_SHATTER) [R] (+100 SEC-XP)",
+      "xp_delta": 100,
+      "prev_hash": "1cce90a503e38e16...",
+      "sha256_hash": "7fe7d800793f8d768abb9e8277f67347ddcba1d2177f3ad42c0ac89bd0fcd913",
+      "occurred_at": "2026-10-26T04:55:42Z"
+    },
+    {
+      "revision": 1,
+      "event_id": "pass_ev_50c04759",
+      "owner_id": "SV-2026-001",
+      "subject_type": "PASSPORT_GENESIS",
+      "subject_id": "init_sv2026_001",
+      "verdict_or_milestone": "INITIALIZED_ZERO_TRUST_PASSPORT",
+      "provenance_class": "OFFICIAL",
+      "detail": "Khởi tạo Hộ chiếu Bằng chứng Sống chuẩn SHA-256 Append-Only cho sinh viên SV-2026-001",
+      "xp_delta": 0,
+      "prev_hash": "0000000000000000...",
+      "sha256_hash": "1cce90a503e38e16e32b6b9ad872991702b518c5014bedfe6e9766e793d8f69d",
+      "occurred_at": "2026-10-26T04:55:12Z"
+    }
+  ],
+  "league_submissions": [],
+  "canary_credentials": [
+    {
+      "canary_key_id": "NOVA_CANARY_KEY_38E1D7D40E83001D",
+      "student_id": "SV-2026-001",
+      "repo_name": "capstone-ai-web",
+      "created_at": "2026-10-26T04:56:23Z",
+      "decoy_env_snippet": "# [StudentHub-Nova Canary Credential Trap - DO NOT USE IN PRODUCTION]\nNOVA_DECOY_SERVICE_API_KEY=NOVA_CANARY_KEY_38E1D7D40E83001D\n",
+      "triggered_count": 1
+    }
+  ]
+}
